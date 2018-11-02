@@ -24,7 +24,7 @@ dist/%.js: src/%.js
 
 deploy: build ## Build and deploy ./dist to codevember.davidauthier.wearemd.com/2018/11/
 	@rsync -avz ./dist/ $(USER)@$(SERVER):$(SERVER_DEST)
-	@rsync index.html $(USER)@$(SERVER):$(SERVER_DEST)
+	@# @rsync index.html $(USER)@$(SERVER):$(SERVER_DEST)
 
 .PHONY: help
 help: ## Print this help
