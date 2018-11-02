@@ -10,20 +10,6 @@ const settings = {
 // Start the sketch
 canvasSketch(() => {
   return ({ context, width, height, playhead }) => {
-    const lines = (xOffset, yOffset, lineHeight = 10) => {
-      context.fillStyle = 'black'
-      for (var i = 0; i <= height * 2; i+= lineHeight) {
-        if (i / lineHeight % 2 == 0)
-          context.fillRect(
-            xOffset + 0, 
-            yOffset + i, 
-            width * .8, 
-            lineHeight
-          )
-      }
-    }
-
-    // Fill the canvas with pink
     context.fillStyle = 'white'
     context.fillRect(0, 0, width, height)
 
