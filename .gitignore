@@ -4,3 +4,6 @@ dist/
 
 # Deployment
 .env
+
+# Stuff
+.todo
