@@ -1,12 +1,11 @@
 // Heavily inspired by: https://mattdesl.svbtle.com/pen-plotter-2
 
-const canvasSketch        = require('canvas-sketch')
-const random              = require('canvas-sketch-util/random')
-const clustering          = require('density-clustering')
-const convexHull          = require('convex-hull')
-const { renderPolylines } = require('canvas-sketch-util/penplot');
+const canvasSketch = require('canvas-sketch')
+const random       = require('canvas-sketch-util/random')
+const clustering   = require('density-clustering')
+const convexHull   = require('convex-hull')
 
-const settings = {};
+const settings = {}
 
 const colors  = [
   "#F5C80B",
@@ -31,26 +30,22 @@ canvasSketch(() => {
       const clusters = scan
         .run(coordinates, clusterCount)
         .filter(c => c.length >= 3)
-        .sort((a, b) => a.length - b.length);
+        .sort((a, b) => a.length - b.length)
 
       // Ensure we resulted in some clusters
-      if (clusters.length === 0) return;
+      if (clusters.length === 0) return
 
       // Select the least dense cluster
-      const cluster = clusters[0];
+      const cluster = clusters[0]
 
-      const positions = cluster.map(i => coordinates[i]);
+      const positions = cluster.map(i => coordinates[i])
 
       // Create a closed polyline from the hull
-      let path = convexHull(positions).map(c => positions[c[0]]);
-      path.push(path[0]);
-
-      // Add to total list of polylines
-      let lines = []
-      lines.push(path);
+      let path = convexHull(positions).map(c => positions[c[0]])
+      path.push(path[0])
 
       // Remove those coordinates from our data set
-      coordinates = coordinates.filter(p => !positions.includes(p));
+      coordinates = coordinates.filter(p => !positions.includes(p))
 
       context.fillStyle = colors[random.rangeFloor(0, colors.length)]
       context.beginPath()
@@ -58,5 +53,5 @@ canvasSketch(() => {
       context.fill()
       context.stroke()
     }
-  };
-}, settings);
+  }
+}, settings)

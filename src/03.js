@@ -2,7 +2,7 @@ const canvasSketch = require('canvas-sketch')
 const random       = require('canvas-sketch-util/random')
 const triangulate  = require('delaunay-triangulate') 
 
-const settings = {};
+const settings = {}
 
 const colors  = [
   "#F5C80B",
@@ -32,5 +32,5 @@ canvasSketch(() => {
       context.fill()
       context.stroke()
     })
-  };
-}, settings);
+  }
+}, settings)
