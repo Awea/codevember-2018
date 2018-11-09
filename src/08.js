@@ -11,12 +11,6 @@ const settings = {
 const colors = interpolate(['green', 'yellow', 'black'])
 let circles  = []
 
-function growCircle(context){
-  context.beginPath();
-  context.arc(width / 2, height / 2, lerp(0, height, playhead / .2), 0, 2 * Math.PI)
-  context.stroke();
-}
-
 // Start the sketch
 canvasSketch(() => {
   return ({ context, width, height, playhead }) => {
