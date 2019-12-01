@@ -3,6 +3,11 @@ node_modules/
 dist/
 *.log
 
+# Site build folder
+!dist/
+dist/*
+!dist/index.html
+
 # Deployment
 .env
 
